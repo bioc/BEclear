@@ -1,4 +1,12 @@
-Changes in version 2.27.1 (2026-06-07)
+Changes in version 2.29.2 (2026-09-14)
+    + Bug fixes
+        o Batch effects are detected in both directions again, as 1.12.x did. 
+        o correctBatchEffect no longer fails with when glue isn't installed
+    + Tests
+        o Test for batches shifted downward in calcSummary
+        o Test for logging when logger formats with sprintf
+
+Changes in version 2.29.1 (2026-06-07)
     + Tests
         o Reintroduced integration tests for correctBatchEffect
 

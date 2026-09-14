@@ -35,7 +35,8 @@ saveAsFile is \code{TRUE}.
 }
 \description{
 Returns a table with the number of found genes with found
-p-values less or equal to 0.01 and median values greater or equal to 0.05.
+p-values less or equal to 0.01 and absolute median differences greater or
+equal to 0.05.
 A score is calculated depending on the number of found genes as well as the
 magnitude of the median difference values, this score is divided by the
 overall number of genes in the data and returned as "BEscore". See details
@@ -47,8 +48,8 @@ calcScore
 
 The returned data frame contains one column for the batch numbers,
 11 columns containing the number of genes found in a certain range of the
-median difference value and a column with the calculated BEscore. These
-found genes are assumed to be batch affected due to their difference in
+absolute median difference value and a column with the calculated BEscore.
+These found genes are assumed to be batch affected due to their difference in
 median values and their different distribution of the beta values. The higher
 the found number of genes and the more extreme the median difference is, the
 more severe is the assumed batch effect supposed to be. We suggest that there
@@ -56,9 +57,9 @@ is no need for a batch effect correction if the BEscore for a batch is less
 than 0.02. BEscores between 0.02 and 0.1 are lying in a "gray area" for which
 we assume a not severe batch effect, and values beyond 0.1 certainly describe
 a batch effect and should definitely be corrected.\cr
-The 11 columns containing the numbers of found genes count the median
-difference values which are ranging from >= 0.05 to < 0.1 ; >= 0.1 to < 0.2;
->= 0.2 to < 0.3 and so on up to a limit of 1.\cr
+The 11 columns containing the numbers of found genes count the absolute
+median difference values which are ranging from >= 0.05 to < 0.1 ; >= 0.1 to
+< 0.2; >= 0.2 to < 0.3 and so on up to a limit of 1.\cr
 The BEscore is calculated by the sum of the weighted number of genes divided
 by the number of genes. Weightings are calculated by multiplication of the
 number of found genes between 0.05 and 0.1 by 1, between 0.1 and 0.2 by 2,

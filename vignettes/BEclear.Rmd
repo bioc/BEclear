@@ -120,7 +120,8 @@ Furthermore we use a non-parametric Kolmogorov-Smirnov test (`ks.test`) to  comp
 distribution of the beta value for this gene in the batch and the other batches.
 
 If one gene in a batch has a p-value determined by the `ks.test` of less or equal
-0.01 and a median difference of greater or equal 0.05 it is considered batch effected.
+0.01 and an absolute median difference of greater or equal 0.05 it is considered batch
+effected. The batch can be shifted up or down.
 
 ## Detection
 

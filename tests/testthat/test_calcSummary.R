@@ -28,3 +28,16 @@ testthat::test_that("matrix without batch effects", {
 
   testthat::expect_null(sum)
 })
+
+testthat::test_that("batches shifted downward are detected", {
+  sum <- calcSummary(
+    data.frame(
+      b1 = c(-0.06, -0.04, 0.06), b2 = c(-0.5, 0.01, NA)
+    ),
+    data.frame(
+      b1 = c(0.001, 0.001, 0.001), b2 = c(0.005, 0.001, 0.5)
+    )
+  )
+  testthat::expect_equal(sum$batch_id, c("b1", "b1", "b2"))
+  testthat::expect_equal(sum$median, c(-0.06, 0.06, -0.5))
+})

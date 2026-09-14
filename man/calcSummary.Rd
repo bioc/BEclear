@@ -15,29 +15,30 @@ documentation of this function.}
 \code{\link{calcBatchEffects}} function. For further details look at the
 documentation of this function.}
 
-\item{mediansTreshold}{the threshold above or equal median values are regarded 
-as batch effected, when the criteria for p-values is also met.}
+\item{mediansTreshold}{the threshold above or equal absolute median
+differences are regarded as batch effected, when the criteria for p-values
+is also met.}
 
-\item{pvaluesTreshold}{the threshold below or equal p-values are regarded as 
+\item{pvaluesTreshold}{the threshold below or equal p-values are regarded as
 batch effected, when the criteria for medians is also met.}
 }
 \value{
 Null if there are no batch effects detected, else
 a \code{\link[data.table]{data.table}} with the columns "gene" containing the gene name,
 "batch" containing the batch number from which the gene was found, "median"
-and "p-value" containing the calculated median difference values and the
-p-values, respectively.
+and "p-value" containing the calculated median difference values (with their
+sign) and the p-values, respectively.
 }
 \description{
-Summarizes the results of the \code{\link{calcBatchEffects}} 
+Summarizes the results of the \code{\link{calcBatchEffects}}
 function
 }
 \details{
 calcSummary
 
-All genes with a median comparison value >= 0.05 and a p-value
+All genes with an absolute median difference >= 0.05 and a p-value
 of <= 0.01 are summarized into a data.frame. These genes are assumed to
-contain a batch effect
+contain a batch effect, whether the batch is shifted up or down.
 }
 \examples{
 ## Shortly running example. For a more realistic example that takes
