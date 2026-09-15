@@ -2,13 +2,8 @@
 testthat::test_that("logging works when logger formats with sprintf", {
   ## Without glue installed, logger's default formatter is formatter_sprintf,
   ## which failed on "% of the data" in clearBEgenes() before 2.29.2.
-  ## logger's own default, restored afterwards
-  default <- if (requireNamespace("glue", quietly = TRUE)) {
-    logger::formatter_glue
-  } else {
-    logger::formatter_sprintf
-  }
-  logger::log_formatter(logger::formatter_sprintf)
+  ## log_formatter() returns the formatter it replaces, restored afterwards
+  previous <- logger::log_formatter(logger::formatter_sprintf)
   tryCatch({
     data <- matrix(c(0.1, 0.2, 0.3, 0.4, 0.5, 0.6), nrow = 2,
                    dimnames = list(c("g1", "g2"), c("s1", "s2", "s3")))
@@ -20,5 +15,5 @@ testthat::test_that("logging works when logger formats with sprintf", {
     testthat::expect_no_error(cleared <- clearBEgenes(data, samples, summary))
     testthat::expect_true(is.na(cleared["g1", "s3"]))
     testthat::expect_no_error(countValuesToPredict(cleared))
-  }, finally = logger::log_formatter(default))
+  }, finally = logger::log_formatter(previous))
 })
