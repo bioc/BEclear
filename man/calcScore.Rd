@@ -15,9 +15,9 @@ be gene names.}
 the sample numbers, the second column has to contain the corresponding batch
 number. Colnames have to be named as "sample_id" and "batch_id".}
 
-\item{summary}{a summary \code{\link[data.table]{data.table}} containing the 
-columns "gene", "batch", median" and "p-value" and consists of all genes which 
-were found in the median and p-value calculations, see 
+\item{summary}{a summary \code{\link[data.table]{data.table}} containing the
+columns "gene", "batch", median" and "p-value" and consists of all genes which
+were found in the median and p-value calculations, see
 \code{\link{calcSummary}} function for more details.}
 
 \item{saveAsFile}{determining if the data.frame should also be saved as a file}
@@ -28,9 +28,9 @@ stored. The current working directory is defined as default parameter.}
 \value{
 A data.frame is returned containing the number of found genes assumed
 to be batch affected separated by batch and a BEscore for every batch. Furthermore
-there's a column dixonPval giving you a p-value regarding each BEscore according 
+there's a column dixonPval giving you a p-value regarding each BEscore according
 to a Dixon test.
-The data.frame is also stored in the specified directory as .RData file, if 
+The data.frame is also stored in the specified directory as .RData file, if
 saveAsFile is \code{TRUE}.
 }
 \description{

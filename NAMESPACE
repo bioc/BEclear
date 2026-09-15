@@ -23,16 +23,22 @@ importFrom(Matrix,norm)
 importFrom(Rdpack,reprompt)
 importFrom(abind,abind)
 importFrom(dixonTest,dixonTest)
-importFrom(graphics,boxplot)
-importFrom(graphics,mtext)
-importFrom(graphics,par)
+importFrom(graphics,
+  boxplot,
+  mtext,
+  par
+)
 importFrom(ids,random_id)
 importFrom(logger,log_info)
-importFrom(methods,as)
-importFrom(methods,is)
-importFrom(stats,ks.test)
-importFrom(stats,median)
-importFrom(stats,p.adjust)
-importFrom(stats,rnorm)
+importFrom(methods,
+  as,
+  is
+)
+importFrom(stats,
+  ks.test,
+  median,
+  p.adjust,
+  rnorm
+)
 importFrom(utils,write.table)
 useDynLib(BEclear)
